@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="InstrumentStatusDB">
+  <DataContextMoniker Name="/InstrumentStatusDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ddfd8423-a16f-4999-a1d5-76d1b64fda0a" absoluteBounds="1.375, 6.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/InstrumentStatusDBDataContext/tbInstrumentStatus_ComputerType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb9e034c-93c4-464a-a0a1-9dec20636175" absoluteBounds="1.3900000000000001, 6.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14fecfcd-be70-4a17-ab88-466262d37fc0" absoluteBounds="5.375, 6.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/InstrumentStatusDBDataContext/tbInstrumentStatus_Computer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b08e4b92-5028-4f7f-ba39-01d05a3621c5" absoluteBounds="5.39, 6.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 6.97199625651042); (5.375 : 6.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/InstrumentStatusDBDataContext/tbInstrumentStatus_ComputerType/tbInstrumentStatus_ComputerType_tbInstrumentStatus_Computer" />
+      <nodes>
+        <classShapeMoniker Id="ddfd8423-a16f-4999-a1d5-76d1b64fda0a" />
+        <classShapeMoniker Id="14fecfcd-be70-4a17-ab88-466262d37fc0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="788a17dd-be37-4846-8517-346048f10bec" absoluteBounds="6, 2.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/InstrumentStatusDBDataContext/tbInstrumentStatus_Directory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb62cd8a-e222-4c83-ba34-466c2607b101" absoluteBounds="6.015, 2.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.6875 : 6.25); (6.6875 : 4.40549967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/InstrumentStatusDBDataContext/tbInstrumentStatus_Computer/tbInstrumentStatus_Computer_tbInstrumentStatus_Directory" />
+      <nodes>
+        <classShapeMoniker Id="14fecfcd-be70-4a17-ab88-466262d37fc0" />
+        <classShapeMoniker Id="788a17dd-be37-4846-8517-346048f10bec" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

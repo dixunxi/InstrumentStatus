@@ -1,0 +1,117 @@
+﻿<Application x:Class="InstrumentStatusDashboard.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:InstrumentStatusDashboard"
+             xmlns:controls="clr-namespace:InstrumentStatusDashboard.Controls"
+             xmlns:converter="clr-namespace:SafireMvvm.Controls.Converter;assembly=SafireMvvm"
+             xmlns:localconverter="clr-namespace:InstrumentStatusDashboard.Converters"
+             Startup="App_OnStartUp">
+    <Application.Resources>
+        <converter:RadioButtonBoolToIntConverter x:Key="RadioButtonBoolToIntConverter" />
+        <converter:BooleanToVisibilityConverter x:Key="BooleanToVisiblityConverter" />
+        <converter:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisiblityConverter" />
+        <converter:WidthConverter x:Key="WidthConverter" />
+        <converter:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        <converter:HeightConverter x:Key="HeightConverter" />
+        <converter:IsNullOrEmptyVisiblilityConverter x:Key="IsNullOrEmptyVisiblilityConverter" />
+        <localconverter:IsNotDefaultDatetime x:Key="IsNotDefaultDatetime" />
+
+        <Style TargetType="MenuItem" x:Key="DatabaseModeStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DatabaseMode}" Value="Dev">
+                    <Setter Property="Background"  Value="LightGreen" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DatabaseMode}" Value="Cert">
+                    <Setter Property="Background"  Value="LightYellow" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DatabaseMode}" Value="Prod">
+                    <Setter Property="Background" Value="LightSalmon" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="ListBox" x:Key="Base-ListBox">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="Base-Button">
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Padding" Value="8,0,8,0" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource Base-Button}" x:Key="Danger-Button">
+            <Setter Property="Background" Value="Salmon" />
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource Base-Button}" x:Key="Action-Button">
+            <Setter Property="Background" Value="LightCyan" />
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource Base-Button}" x:Key="Success-Button">
+            <Setter Property="Background" Value="LightGreen" />
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource Base-Button}" x:Key="Nav-Button">
+            <Setter Property="Height" Value="32" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+
+        <Style TargetType="ComboBox" x:Key="Base-ComboBox">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="CheckBox" x:Key="Base-CheckBox">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="TextBox" x:Key="Base-Textbox">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Bold-TextBlock">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Bold-TextBlock-Large">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Base-TextBlock">
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Error-TextBlock">
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style x:Key="{x:Type controls:TextBlockValidation}" TargetType="{x:Type controls:TextBlockValidation}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type controls:TextBlockValidation}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource Base-TextBlock}" x:Name="PART_TextBlockHeader" Text="{TemplateBinding Header}" Visibility="{TemplateBinding ShowHeader, Converter={StaticResource BooleanToVisiblityConverter}}" />
+                            <TextBlock Style="{StaticResource Error-TextBlock}" x:Name="PART_TextBlockErrorMessage" Text="{TemplateBinding ErrorMessage}" Visibility="{TemplateBinding HasError, Converter={StaticResource BooleanToVisiblityConverter}}" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

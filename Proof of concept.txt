@@ -1,0 +1,3 @@
+Organize by number of runs within 24 hours or over TAT. Add oldest sample TAT
+
+Make excepts go green if the underlying Accession isn't verified, if the underlying Accession is verified then disappear

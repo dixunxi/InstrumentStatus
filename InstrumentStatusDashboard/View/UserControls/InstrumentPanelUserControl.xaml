@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="InstrumentStatusDashboard.View.UserControls.InstrumentPanelUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InstrumentStatusDashboard.View.UserControls"
+             mc:Ignorable="d" >
+    <Border BorderThickness="2" BorderBrush="Black">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="LightGoldenrodYellow" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Path=IsRunning}" Value="True">
+                        <Setter Property="Background" Value="LightGreen" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Path=IsOnline}" Value="False">
+                        <Setter Property="Background" Value="Salmon" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Style="{StaticResource Bold-TextBlock-Large}" Text="{Binding Path=Instrument.system_name}" />
+            <TextBlock Style="{StaticResource Base-TextBlock}" Text="{Binding Path=LastDirectory.last_file_modified_date}" />
+            <TextBlock Style="{StaticResource Base-TextBlock}" Text="{Binding Path=CurrentStatus}" />
+            <Button Style="{StaticResource Base-Button}" Content="Edit Directories" Command="{Binding Path=EditDirectoriesCommand}" />
+        </StackPanel>
+    </Border>
+</UserControl>
